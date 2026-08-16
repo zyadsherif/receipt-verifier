@@ -1,0 +1,19 @@
+name: Feature request
+description: Propose a provider, preset, rule, or integration improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What integration or verification problem should be solved?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Include API, safety, privacy, and compatibility considerations.
+    validations:
+      required: true

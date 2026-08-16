@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+.typedoc/
+.env
+.env.*
+!.env.example
+eval/private/
+*.tgz
+.DS_Store

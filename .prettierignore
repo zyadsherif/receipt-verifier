@@ -1,0 +1,4 @@
+dist
+coverage
+.typedoc
+package-lock.json

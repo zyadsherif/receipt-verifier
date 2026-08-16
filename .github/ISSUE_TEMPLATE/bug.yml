@@ -1,0 +1,28 @@
+name: Bug report
+description: Report reproducible incorrect behavior using synthetic or redacted data.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include API keys, real receipts, or personal payment data. Report security issues privately.
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+      description: Include package version, Node version, verdict, and safe reason codes.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Synthetic reproduction
+      description: Provide minimal code and synthetic/redacted evidence only.
+    validations:
+      required: true

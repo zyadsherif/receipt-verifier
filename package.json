@@ -1,0 +1,90 @@
+{
+  "name": "instapay-receipt-verifier",
+  "version": "0.1.0",
+  "description": "Backend-first AI receipt verification with a hardened Egyptian InstaPay preset.",
+  "keywords": [
+    "instapay",
+    "receipt",
+    "verification",
+    "payments",
+    "egypt",
+    "openai",
+    "fraud-prevention"
+  ],
+  "homepage": "https://github.com/zyadsherif/receipt-verifier#readme",
+  "bugs": {
+    "url": "https://github.com/zyadsherif/receipt-verifier/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyadsherif/receipt-verifier.git"
+  },
+  "license": "MIT",
+  "author": "Zyad Sherif",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./openai": {
+      "types": "./dist/openai-entry.d.ts",
+      "import": "./dist/openai-entry.js",
+      "require": "./dist/openai-entry.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist coverage .typedoc",
+    "dev": "tsup --watch",
+    "docs": "typedoc --out .typedoc src/index.ts src/openai-entry.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --max-warnings=0",
+    "example:smoke": "node examples/node/import-smoke.mjs",
+    "pack:check": "node scripts/audit-package.mjs",
+    "prepublishOnly": "npm run quality",
+    "quality": "npm run typecheck && npm run lint && npm run format:check && npm run test:coverage && npm run build && npm run example:smoke && npm run pack:check",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "openai": "^6.21.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^22.19.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.5.0",
+    "prettier": "^3.8.1",
+    "rimraf": "^6.1.2",
+    "tsup": "^8.5.1",
+    "typedoc": "^0.28.15",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.1",
+    "vitest": "^4.0.18"
+  },
+  "overrides": {
+    "esbuild": "^0.28.2"
+  }
+}
